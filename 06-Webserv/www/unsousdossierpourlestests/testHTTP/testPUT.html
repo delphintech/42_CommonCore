@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- set favicon -->
+        <link rel="icon" href="/bsas.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/style/style.css">
+        <title>test put</title>
+        <script>
+            function uploadFile() {
+                var fileInput = document.getElementById('file');
+                var file = fileInput.files[0];
+
+                if (!file) {
+                    alert("Veuillez sélectionner un fichier !");
+                    return;
+                }
+
+                fetch(`/uploads/${file.name}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': file.type // Ex: "image/png"
+                    },
+                    body: file
+                }).then(response => {
+                    window.parent.postMessage({ action: "fileUploaded", filename: file.name }, "*");
+                    window.parent.postMessage({ action: "updated", filename: `/uploads/${file.name}` }, "*");
+                    const headerStatusCode = response.status;
+                    const headerStatusMessage = response.statusText;
+                    const headers = [...response.headers.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
+                    document.querySelector("#responseHeader").innerHTML ="<h2>" + headerStatusCode+" "+ headerStatusMessage+ "</h2>"+ headers;
+
+                    if (response.ok) {
+                       console.log(response);
+                    } else {
+                        console.warn(response);
+                    }
+                }).catch(error => {
+                    alert("Problème réseau !");
+                    console.error(error);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="result-container">
+            <div class="results">
+                <pre id="responseHeader"></pre>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2>Uploader un fichier</h2>
+            <input type="file" id="file">
+            <br><br>
+            <button onclick="uploadFile()">PUT FILE</button>
+        </div>
+
+        <form id="testPutJson">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="url">file name url</label>
+                    <input type="text" name="url" id="url" required value="http://127.0.0.1:4243/uploads/testfile.json">
+                </div>
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <button type="submit">PUT Json</button>
+            </div>
+        </form>
+        <script>
+            const putform = document.querySelector("#testPutJson");
+            function uploadJson() {
+
+            const formData = new FormData(putform);
+            let object = {};
+            formData.forEach((value, key) => object[key] = value);
+            const jsonData = JSON.stringify(object);              
+
+                fetch(`${object.url}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: jsonData
+                }).then(response => {
+                    window.parent.postMessage({ action: "fileUploaded", filename: object.url }, "*");
+                    window.parent.postMessage({ action: "updated", filename: object.url }, "*");
+                    const headerStatusCode = response.status;
+                    const headerStatusMessage = response.statusText;
+                    const headers = [...response.headers.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
+                    document.querySelector("#responseHeader").innerHTML ="<h2>" + headerStatusCode+" "+ headerStatusMessage+ "</h2>"+ headers;
+                   
+                    if (response.ok) {
+                       console.log(response);
+                    } else {
+                        console.warn(response);
+                    }
+                }).catch(error => {
+                    alert("Problème réseau !");
+                    console.error(error);
+                });
+            }
+
+            putform.addEventListener("submit", (event) => {
+                event.preventDefault();
+                uploadJson();
+            });
+        </script>
+    </body>
+</html>

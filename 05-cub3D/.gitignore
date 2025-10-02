@@ -1,0 +1,10 @@
+*.o
+*/*.o
+cub3D
+.vscode
+.vscode/*
+*/*.a
+*.a
+.libft
+.mlx
+minilibx-linux

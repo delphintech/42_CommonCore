@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'inscription</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 24px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="file"],
+        .form-container textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .form-container textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 2px 2px 2px 2px;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .form-container .form-group {
+            margin-bottom: 10px;
+        }
+        .result-container {
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          
+            width: 100%;
+        }
+        .result-container .results {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .result-container .results pre {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+            overflow-x: auto;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .description  {
+            min-width: 30vh;
+            background-color: #f1f1f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .description span {
+                color:  #0056b3;
+                font-size: small;
+                margin: 0
+            }
+        .description pre { 
+                margin: 0;
+                padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Test de requete HTTP</h2>
+
+        <div class="form-group">
+            <div class="description">
+                <h3>example: d'url de test</h3>
+                <span>avec le fichier de configuration du server conf.d/nbrigui.con</span>
+                <pre>http://127.0.0.1:4243/cgi-bin/testphp/index.php</pre>
+                <pre>http://127.0.0.1:4243/cgi-bin/testphp/index.php/?name=nizar&email=nbrigui@student.42.fr</pre>
+                <pre>http://127.0.0.1:4243/cgi-bin/testphp/postMultipart.php</pre>
+                <pre>http://127.0.0.1:4243/cgi-bin/testsh/testPOST.sh</pre>
+                <pre>http://127.0.0.1:4243/cgi-bin/testsh/testHello.sh</pre>
+                <br>
+                <pre>http://127.0.0.1:4243/testHTTP</pre>
+                <pre>http://127.0.0.1:4243/testHTTP/testHTTP.html</pre>
+                <pre>http://127.0.0.1:4243/html/domain2/index.html</pre>
+                <pre>http://127.0.0.1:4243/html/domain2/formPOST.html</pre>
+                <pre>http://127.0.0.1:4243</pre>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="urlForm">Url</label>
+                <input type="text" name="url" id="urlForm" value="http://127.0.0.1:4243/">
+        </div>
+        <form  method="head" id="testHead">
+           
+            <button type="submit">HEAD</button>
+        </form>
+        <form  method="head" id="testGet">
+           
+            <button type="submit">GET</button>
+        </form>
+        <form  method="head" id="testDelete">
+            <button type="submit">DELETE</button>
+        </form>
+        <form enctype="multipart/form-data" id="testPost">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="avatar">Sélectionnez un avatar</label>
+                <input type="file" id="avatar" name="avatar" >
+            </div>
+            <button type="submit">POST</button>
+        </form>
+    </div>
+       
+    <div class="result-container">
+        <div class="results">
+            <pre id="responseHeader"></pre>
+            <pre id="response"></pre>
+        </div>
+    </div>
+</body>
+<script src="js/testHTTP.js"></script>
+</html>

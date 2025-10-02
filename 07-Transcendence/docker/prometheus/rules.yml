@@ -1,0 +1,22 @@
+groups:
+  - name: target_down
+    rules:
+    - alert: TargetIsDownAlert
+      expr: up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "La cible est inaccessible"
+        description: "Cette alerte se déclenche dès que Prometheus ne peut pas joindre une target."
+
+  - name: high_traffic
+    rules:
+    - alert: TrafficIsHigh
+      expr: sum(rate(http_requests_total[1m])) > 100
+      for: 1m  
+      labels:
+        severity: anomaly
+      annotations:
+        summary: "Le traffic sur l'app est anormalement eleve"
+        description: "Cette alerte se déclenche dès que le traffic sur le site est eleve."

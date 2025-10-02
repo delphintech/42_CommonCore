@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set favicon -->
+    <link rel="icon" href="/bsas.ico" type="image/x-icon">
+	<!-- <link rel="stylesheet" href="style/style.css"> -->
+	<title>téléchargement</title>
+    <style>
+        html{
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            margin: 15;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+        }
+        .component {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        .component-section-left {
+            width: 40%;
+        }
+        .component-section-right {
+            width: 60%;
+        }
+        .component-section-top {
+            width: 60%;
+            height: 200px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Test PUT</h1>
+        <div>
+            <content-file-section class = "component-section-top"></content-file-section>
+        </div>
+        <div class="component">
+            <test-put-section class = "component-section-left"></test-put-section>
+            <upload-dir-section class = "component-section-right"></upload-dir-section>
+        </div>
+    </body>
+    <script src="/js/test-put-component.js"></script>
+    <script src="/js/upload-dir-component.js"></script>
+    <script src="/js/content-file-component.js"></script>
+</html>

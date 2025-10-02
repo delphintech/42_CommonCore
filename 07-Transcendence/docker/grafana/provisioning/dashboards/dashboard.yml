@@ -1,0 +1,10 @@
+apiVersion: 1
+
+providers:
+  - name: 'prometheus_dashboard'
+    orgId: 1
+    folder: 'Imported Dashboards'
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards
+

@@ -1,0 +1,11 @@
+*.o
+*.d
+*.a
+*/*.o
+*/*.d
+*/*.a
+philo/philo
+val.log
+*/val.log
+LazyPhilosophersTester
+LazyPhilosophersTester/*

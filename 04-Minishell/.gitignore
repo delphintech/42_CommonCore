@@ -1,0 +1,16 @@
+*.o
+*.d
+*/*.d
+*/*.o
+minishell
+.vscode
+.vscode/*
+*/*.a
+*.a
+test
+.libft
+infile
+outfile
+val.log
+test.sh
+.val.supp

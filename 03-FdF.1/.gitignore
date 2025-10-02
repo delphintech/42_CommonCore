@@ -1,0 +1,13 @@
+*.o
+*.d
+fdf
+*/*.o
+*/*.d
+fdf_linux
+minilibx/*.o
+minilibx/*.d
+fdf_linux
+coords.csv
+*.csv
+.libs
+*/*.a

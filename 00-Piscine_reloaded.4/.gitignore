@@ -1,0 +1,5 @@
+tests/*
+a.out
+ex27/test.txt
+ex24/*
+!ex24/Makefile

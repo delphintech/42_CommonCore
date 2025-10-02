@@ -1,0 +1,12 @@
+**/.env
+.vscode
+**/node_modules
+tailwind.config.js
+**/**/dist
+data
+*.rest
+**/temp
+tourCombinations
+logs
+logs/*
+app/package-lock.json

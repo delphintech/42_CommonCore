@@ -1,0 +1,18 @@
+queries:
+  - name: user_count
+    help: Number of lines in user table
+    labels: []
+    values:
+      - sql: "SELECT COUNT(*) AS value FROM users;"
+
+  - name: game_count
+    help: Number of lines in games table
+    labels: []
+    values:
+      - sql: "SELECT COUNT(*) AS value FROM games;"
+
+  - name: tournament_count
+    help: Number of lines in tournaments table
+    labels: []
+    values:
+      - sql: "SELECT COUNT(*) AS value FROM tournaments;"

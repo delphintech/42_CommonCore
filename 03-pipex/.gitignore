@@ -1,0 +1,14 @@
+a.out
+*.out
+pipex
+test
+*.o
+*.d
+*.a
+*/*.o
+*/*.d
+*/*.a
+inflie
+outfile
+pipex-tester
+pipex-tester/*

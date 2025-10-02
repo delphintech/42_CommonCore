@@ -1,0 +1,14 @@
+global: # paramètres globaux applicables à toutes les alertes.
+  resolve_timeout: 5m # délai avant qu’une alerte résolue ne soit considérée comme vraiment terminée
+
+route: # définit comment router les alertes
+  receiver: 'default' # toutes les alertes reçues seront envoyées vers le receiver nommé default.
+
+receivers:
+  - name: 'default'
+    email_configs:
+      - to: '${AM_DEST}'
+        from: '${AM_SMTP_USER}'
+        smarthost: '${AM_SMTP_HOST}'
+        auth_username: '${AM_SMTP_USER}'
+        auth_password: '${AM_SMTP_PASSWORD}'

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- set favicon -->
+        <link rel="icon" href="/bsas.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/style/style.css">
+        <title>téléchargement</title>
+        <script>
+            function uploadFile() {
+                var fileInput = document.getElementById('file');
+                var file = fileInput.files[0];
+
+                if (!file) {
+                    alert("Veuillez sélectionner un fichier !");
+                    return;
+                }
+
+                fetch('/uploads', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': file.type // Ex: "image/png"
+                    },
+                    body: file
+                }).then(response => {
+                        /* alert("Fichier envoyé avec succès !"); */
+                        window.parent.postMessage({ action: "fileUploaded", filename: file.name }, "*");
+                        console.log(response);
+                        const headerStatusCode = response.status;
+                        const headerStatusMessage = response.statusText;
+                        const headers = [...response.headers.entries()].map(([key, value]) => `${key}: ${value}`).join("\n");
+                        document.querySelector("#responseHeader").innerHTML ="<h2>" + headerStatusCode+" "+ headerStatusMessage+ "</h2>"+ headers;
+                    
+                }).catch(error => {
+                    alert("Problème réseau !");
+                    console.error(error);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="result-container">
+            <div class="results">
+                <pre id="responseHeader"></pre>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2>Uploader un fichier</h2>
+            <input type="file" id="file">
+            <br><br>
+            <button onclick="uploadFile()">Envoyer</button>
+        </div>
+    </body>
+</html>

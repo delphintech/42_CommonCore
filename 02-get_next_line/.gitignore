@@ -1,0 +1,11 @@
+Makefile
+*.o
+*.out
+test.c
+test.txt
+gnlTester
+gnlTester/*
+*.txt
+test_bonus.c
+test
+bonus

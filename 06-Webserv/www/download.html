@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set favicon -->
+    <link rel="icon" href="/bsas.ico" type="image/x-icon">
+	<!-- <link rel="stylesheet" href="style/style.css"> -->
+	<title>téléchargement</title>
+    <style>
+        html{
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            margin: 15;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+        }
+        .component {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        .component-section-left {
+            width: 40%;
+        }
+        .component-section-right {
+            width: 60%;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Test POST</h1>
+        <div class="component">
+       
+       <!--  <iframe id="formFrame" src="testPOST.html" width="40%" height="500px"></iframe> -->
+        <test-post-section class = "component-section-left"></test-post-section>
+       <!--  <iframe id="uploadsFrame" src="uploads" width="60%" height="500px"></iframe> -->
+        <upload-dir-section class = "component-section-right"></upload-dir-section>
+        </div>
+    </body>
+    <script src="js/test-post-component.js"></script>
+    <script src="js/upload-dir-component.js"></script>
+</html>

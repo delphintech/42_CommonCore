@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set favicon -->
+    <link rel="icon" href="/bsas.ico" type="image/x-icon">
+	<!-- <link rel="stylesheet" href="style/style.css"> -->
+	<title>Test Cookie</title>
+    <style>
+        html{
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            margin: 15;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+        }
+        .component {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        .component-section-left {
+            width: 40%;
+        }
+        .component-section-right {
+            width: 60%;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Test Cookie via php-cgi</h1>
+        <div class="component">
+            <test-subscribe-section class = "component-section-left"></test-subscribe-section>
+            <user-profil-section class = "component-section-right"></user-profil-section>
+        </div>
+    </body>
+    <script src="js/test-subscribe-component.js"></script>
+    <script src="js/user-profil-component.js"></script>
+</html>

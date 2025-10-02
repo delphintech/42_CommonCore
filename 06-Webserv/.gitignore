@@ -1,0 +1,10 @@
+.vscode
+obj/
+*.out
+webserv
+output.txt
+gros.tmp
+responseCode.txt
+*copy.cpp
+logs/access.log
+var/uploads

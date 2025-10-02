@@ -1,0 +1,11 @@
+*.out
+test
+test.c
+*.o
+./utils/*.o
+*.d
+./utils/*.d
+*.a
+./utils/*.a
+TRP_tester
+TRP_tester/*

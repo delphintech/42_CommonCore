@@ -1,0 +1,278 @@
+GET http://localhost:4243/ HTTP/1.1
+Host: nizar.com
+
+###
+POST http://localhost:4243 HTTP/1.1
+Host: localhost:4243
+
+###
+POST http://127.0.0.1:4243/html/domain2/ HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+content-type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "message": "Bonjour, ceci est un test"
+}
+
+###
+###
+PUT http://127.0.0.1:4243/uploads/test1.json HTTP/1.1
+Host: www.test2.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+content-type: application/json
+
+{
+    
+    "name": "JACK Doe",
+    "email": "john.doe@example.com",
+    "message": "Bonjour, ceci est un test put"
+}
+###
+POST http://127.0.0.1:4243/cgi-bin/testphp/postJson.php HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+content-type: application/json
+
+{
+    
+    "name": "JACK Doe",
+    "email": "john.doe@example.com",
+    "message": "Bonjour, ceci est un test put"
+}
+###
+POST http://127.0.0.1:4243/cgi-bin/testphp/index.php HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0
+Accept: */*
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Referer: http://127.0.0.1:4243/form
+Content-Type: multipart/form-data; boundary=---------------------------205846111341080433132103704990
+Content-Length: 529
+Origin: http://127.0.0.1:4243
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Priority: u=0
+Pragma: no-cache
+Cache-Control: no-cache
+
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="name"
+
+moi
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="email"
+
+test@test.com
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="message"
+
+gh
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="school"
+
+42
+-----------------------------205846111341080433132103704990--
+###
+GET http://127.0.0.1:4243 HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+
+###
+
+GET http://127.0.0.1:4243/index HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Pragma: no-cache
+Cache-Control: no-cache
+
+###
+
+POST http://127.0.0.1:4243/ HTTP/1.1
+Host:127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Content-Type: application/json
+Origin: http://127.0.0.1:4243
+Connection: keep-alive
+Content-Length: 56
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+GET http://127.0.0.1:4243/form HTTP/1.1
+Host: 127.0.0.1:4243
+
+###
+GET http://127.0.0.1:4243/favicon.ico HTTP/1.1
+Host: 127.0.0.1:4243
+
+
+###
+GET http://127.0.0.1:4243/ HTTP/1.1
+Host: 127.0.0.1:4243
+Accept: */*
+Connection: keep-alive
+
+
+###
+HEAD http://127.0.0.1:4243 HTTP/1.1
+Host: 127.0.0.1:4243
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+
+###
+
+POST http://127.0.0.1:8080 HTTP/1.1
+Content-Length: 0
+Host:http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Pragma: no-cache
+Cache-Control: no-cache
+
+###
+
+GET http://127.0.0.1:8080/directory HTTP/1.1
+Host:http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Pragma: no-cache
+Cache-Control: no-cache
+
+###
+
+POST  http://127.0.0.1:8080/directory/youpi.bla HTTP/1.1
+Host:http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Pragma: no-cache
+Cache-Control: no-cache
+
+###
+
+GET http://127.0.0.1:8080/directory/oulalala HTTP/1.1
+Host:http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Pragma: no-cache
+Cache-Control: no-cache
+
+###
+POST http://127.0.0.1:8080/post_body HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0
+Accept: */*
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Referer: http://127.0.0.1:4243/form
+Content-Type: multipart/form-data; boundary=---------------------------205846111341080433132103704990
+Content-Length: 529
+Origin: http://127.0.0.1:4243
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Priority: u=0
+Pragma: no-cache
+Cache-Control: no-cache
+
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="name"
+
+moi
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="email"
+
+test@test.com
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="message"
+
+gh
+-----------------------------205846111341080433132103704990
+Content-Disposition: form-data; name="school"
+
+42
+-----------------------------205846111341080433132103704990--
+
+###
+
+GET http://127.0.0.1:4243/cgi-bin/testsh/loop.sh HTTP/1.1
+Host: test
+
+####

@@ -1,0 +1,12 @@
+Push-Swap-Tester
+Push-Swap-Tester/*
+*.o
+*/*.o
+*.d
+*/*.d
+push_swap
+checker*
+*.out
+*.sh
+*.txt
+ARG*

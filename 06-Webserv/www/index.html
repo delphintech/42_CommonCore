@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set favicon -->
+    <link rel="icon" href="bsas.ico" type="image/x-icon">
+	<title>Test Requetes</title>
+    <style>
+        body {
+            background-color: #b1b1c2;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+		section {
+			background-color: #f1f1f1;
+			margin: 10px;
+			padding: 0px;
+			border-radius: 10px;
+			height: 100%;
+		}
+		
+			.title {
+			text-align: center;
+			width: 100%;
+			padding: 10px 0px 10px 0px;
+			background-color: #007BFF;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			}
+			.title:hover {
+				background-color: #0056b3;
+			}
+		.content {
+			display: none;
+			/* display: flex; */
+			padding: 10px;
+			height: 100%;
+			box-sizing: border-box;
+		}
+		.content-left {
+			width: 50%;
+			height: 100%;
+			margin-left: 50px;
+
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+		}
+		.content-right {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+		}
+		.detail {
+			font-size: 14px;
+			background-color: #f4eb88;
+			height: 100%;
+            border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+		}
+    </style>
+</head>
+<body>
+	<section>
+		<div class="title">
+			<h2>Test Single POST</h2>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<h2>liens</h2>
+				<p data-description="downloadpage"> page de test: <a href="/download.html"> /download.html</a> </p>
+				<p data-description="testpostpage"> page de test POST: <a href="/testHTTP/testPOST.html"> /testPOST.html</a> </p>
+				<p data-description="uploadsdirpage"> dossier de téléchargement: <a href="/uploads"> /uploads</a> </p>
+			</div>
+			<div class="content-right">
+				
+				<p class="detail">Survolez un lien pour voir la description</p>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="title">
+			<h2>Test Multi View</h2>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<p data-description="multitesthttp"> page de test: <a href="/testHTTP/testHttp.html"> /testHTTP/testHttp.html</a> </p>
+				<p data-description="testFormMultiaction.html"> page de test: <a href="/testHTTP/testFormMultiaction.html"> /testHTTP/testFormMultiaction.html</a> </p>
+			</div>
+			<div class="content-right">
+				
+				<p class="detail">Survolez un lien pour voir la description</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="title">
+			<h2>Test redirection</h2>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<p data-description="redirectionversuploads"> page de test: <a href="/redirectionversuploads"> /redirectiontest</a> </p>
+				
+			</div>
+			<div class="content-right">
+				
+				<p class="detail">Survolez un lien pour voir la description</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="title">
+			<h2>Test PUT</h2>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<p data-description="downloadPUT"> page de test: <a href="/downloadPUT.html"> /downloadPUT.html</a> </p>
+				<p data-description="testPUT.html"> page de test: <a href="/testHTTP/testPUT.html"> /testHTTP/testPUT.html</a> </p>
+				
+			</div>
+			<div class="content-right">
+				
+				<p class="detail">Survolez un lien pour voir la description</p>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="title">
+			<h2>Test Cookie</h2>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<p data-description="inscription"> viewer: <a href="/inscription.html"> /inscription.html</a> </p>
+				<p data-description="createeditprofil"> viewer: <a href="/testHTTP/testSubscribeForm.html"> /testHTTP/testSubscribeForm.html</a> </p>
+				<p data-description="testviewcookie"> viewer: <a href="/testHTTP/testviewcookie.html"> /testHTTP/testviewcookie.html</a> </p>
+				
+			</div>
+			<div class="content-right">
+				
+				<p class="detail">Survolez un lien pour voir la description</p>
+			</div>
+		</div>
+	</section>
+<!-- 	<div>
+		<h2>Test Cookie</h2>
+	<p> viewer: <a href="/testHTTP/testviewcookie.html"> /testHTTP/testviewcookie.html</a> </p>
+	</div> -->
+</body>
+<script>
+	//display none or block in .title
+	let titles = document.querySelectorAll('.title');
+	titles.forEach(title => {
+        title.addEventListener('click', function() {
+            let content = this.nextElementSibling;
+			if(content.style.display == 'none' || content.style.display == ''){
+				content.style.display = 'flex';
+			}else{
+				content.style.display = 'none';
+			}
+        });
+    });
+</script>
+<script>
+	// Tableau à deux dimensions pour stocker les descriptions
+	const descriptions = {
+		"downloadpage": "uploader un fichier unique via une requete POST sur /uploads et afficher le contenu du dossier de telechargement <br> visualisation directe sur une seule page",
+		"testpostpage": "acces direct au formulaire de test POST /testHTTP/testPOST.html",
+		"uploadsdirpage": "acces direct au dossier de telechargement /uploads",
+		"multitesthttp": "HEAD GET DELETE POST (en mutlipart-form data)<br>tester diverse requetes HTTP sur /testHTTP/testHttp.html <br> visualisation directe sur une seule page",
+		"testFormMultiaction.html": "accès direct au formulaire de test HEAD GET DELETE POST /testHTTP/testFormMultiaction.html",
+		"uploads": "Description pour uploads",
+		"redirectionversuploads": "redirection vers /uploads",
+		"downloadPUT": "uploader un fichier unique via une requete PUT sur /uploads et afficher le contenu du dossier de telechargement <br> visualisation directe sur une seule page",
+		"testPUT.html": "acces direct au formulaire de test PUT /testHTTP/testPUT.html",
+		"inscription": "formulaire d'inscription, enregistrement via un formulaire et visualisation du profil utilisateur via les cookies recus<br> le formulaire d'inscription est accessible via /testHTTP/testSubscribeForm.html<br> les requetes sont envoyées sur<br> POST>http://127.0.0.1:4243/cgi-bin/testphp/inscription.php <br>PUT>http://127.0.0.1:4243/cgi-bin/testphp/edit.php",
+		"createeditprofil": "formulaire d'inscription et d edition du profil utilisateur via les cookies recus",
+
+	};
+
+	function setupHoverDescriptions() {
+		const elements = document.querySelectorAll('p[data-description]');
+
+		elements.forEach(element => {
+			element.addEventListener('mouseover', function() {
+				const key = this.getAttribute('data-description');
+				const description = descriptions[key];
+				const section = this.closest('section');
+				const detailParagraph = section.querySelector('.detail');
+				detailParagraph.innerHTML = description;
+			});
+
+			element.addEventListener('mouseout', function() {
+				const section = this.closest('section');
+				const detailParagraph = section.querySelector('.detail');
+				detailParagraph.textContent = 'Survolez un lien pour voir la description';
+			});
+		});
+	}
+
+	// Appliquez la fonction aux éléments pertinents
+	setupHoverDescriptions();
+</script>
+</html>
